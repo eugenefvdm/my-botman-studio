@@ -2214,7 +2214,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   disableStats: true,
   enabledTransports: ['ws', 'wss']
 });
-laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default.channel('messages').listen('.newMessage', function (message) {
+window.Echo.channel('messages').listen('.newMessage', function (message) {
   console.log(message); // this.messages.push(message);
 });
 

@@ -57,7 +57,7 @@ window.Echo = new Echo({
     enabledTransports: ['ws', 'wss'],
 });
 
-Echo.channel('messages')
+window.Echo.channel('messages')
     .listen('.newMessage', (message) => {
         console.log(message);
         // this.messages.push(message);
