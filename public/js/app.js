@@ -2214,7 +2214,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   cluster: "mt1",
   encrypted: false,
   // Was true
-  forceTLS: false,
+  forceTLS: true,
   // Wasn't there
   enabledTransports: ['ws', 'wss']
 });
