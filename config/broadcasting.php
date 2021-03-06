@@ -37,11 +37,11 @@ return [
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
-                'useTLS' => false, // Was true
+                'useTLS' => true, // Was true
                 'encrypted' => false, // Wasn't there
-                'host' => 'my-botman-studio.fintechsystems.net',
+                'host' => '127.0.0.1',
                 'port' => 6001,
-                'scheme' => 'http',
+                'scheme' => 'https',
                 'curl_options' => [
                     CURLOPT_SSL_VERIFYHOST => 0,
                     CURLOPT_SSL_VERIFYPEER => 0,
