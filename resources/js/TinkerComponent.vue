@@ -172,7 +172,14 @@
         },
 
         mounted() {
+            Echo.channel('messages')
+                .listen('.newMessage', (message) => {
+                    this.messages.push(message);
+                    this._say(message);
+                });
+
             let control = document.getElementById("attachment");
+
             control.addEventListener("change", () => {
                 const file = control.files[0];
                 if (file) {
