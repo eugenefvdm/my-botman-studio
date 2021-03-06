@@ -2019,8 +2019,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     var _this = this;
 
     Echo.channel('messages').listen('.newMessage', function (message) {
-      _this.messages.push(message);
-
+      // this.messages.push(message);
       _this._say(message);
     });
     var control = document.getElementById("attachment");
