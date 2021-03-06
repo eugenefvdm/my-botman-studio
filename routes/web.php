@@ -15,5 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/bc', function () {
+    event(new \App\Events\ChatMessageWasReceived("hello"));
+    return;
+    // return view('welcome');
+});
+
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/tinker', 'BotManController@tinker');

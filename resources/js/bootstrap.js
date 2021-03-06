@@ -50,20 +50,14 @@ window.Pusher = require('pusher-js');
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: process.env.MIX_PUSHER_APP_KEY,
-    wsHost: window.location.hostname,
-    wsPort: 6001,
+    wsHost: window.location.hostname,    
+    wsPort: 6001,    
+    forceTLS: false,
     disableStats: true,
-    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    encrypted: false, // Was true
-    forceTLS: true, // Wasn't there
     enabledTransports: ['ws', 'wss'],
 });
     
-
 window.Echo.channel('chat-room.1').listen('ChatMessageWasReceived', (e) => {
-    console.log(e.user, e.chatMessage);
+    console.log(e.chatMessage);
 });
 
-// window.Echo.channel('chat-room.1').listen('InventoryEvent',(e)=>{
-//     console.log(e)
-// })

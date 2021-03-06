@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ChatMessageWasReceived
+class ChatMessageWasReceived implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -22,6 +22,7 @@ class ChatMessageWasReceived
     public function __construct($chatMessage)
     {
         $this->chatMessage = $chatMessage;
+        ray("In broadcast");
     }
 
     /**
