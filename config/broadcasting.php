@@ -38,6 +38,7 @@ return [
             'options' => [
                 // 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'useTLS' => true,
+                // 'host' => 'my-botman-studio.test',
                 'host' => 'my-botman-studio.fintechsystems.net',
                 'port' => 6001,
                 'scheme' => 'https'                

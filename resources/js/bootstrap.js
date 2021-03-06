@@ -49,17 +49,17 @@ window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: process.env.MIX_PUSHER_APP_KEY,
-    wsHost: window.location.hostname,
-    wsPort: 6001,
+    key: "myapp",
+    wsHost: window.location.hostname,    
+    wsPort: 6001,    
+    wssHost: window.location.hostname,    
+    wssPort: 6001,    
     forceTLS: false,
     disableStats: true,
     enabledTransports: ['ws', 'wss'],
 });
-
-window.Echo.channel('messages')
-    .listen('.newMessage', (message) => {
-        console.log(message);
-        // this.messages.push(message);
-    });
+    
+window.Echo.channel('chat-room.1').listen('ChatMessageWasReceived', (e) => {
+    console.log(e.chatMessage);
+});
 
