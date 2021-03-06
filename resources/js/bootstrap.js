@@ -56,7 +56,7 @@ window.Echo = new Echo({
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     encrypted: false, // Was true
     forceTLS: true, // Wasn't there
-    enabledTransports: ['ws', 'wss'],
+    enabledTransports: ['ws'],
 });
     
 

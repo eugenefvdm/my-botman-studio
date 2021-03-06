@@ -2216,7 +2216,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   // Was true
   forceTLS: true,
   // Wasn't there
-  enabledTransports: ['ws', 'wss']
+  enabledTransports: ['ws']
 });
 window.Echo.channel('chat-room.1').listen('ChatMessageWasReceived', function (e) {
   console.log(e.user, e.chatMessage);
