@@ -2212,9 +2212,9 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   wsPort: 6001,
   disableStats: true,
   cluster: "mt1",
-  encrypted: false,
+  encrypted: true,
   // Was true
-  forceTLS: false,
+  forceTLS: true,
   // Wasn't there
   enabledTransports: ['ws', 'wss']
 });

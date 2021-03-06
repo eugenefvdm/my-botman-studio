@@ -38,8 +38,8 @@ return [
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'useTLS' => true, // Was true
-                'encrypted' => false, // Wasn't there
-                'host' => '127.0.0.1',
+                'encrypted' => true, // Wasn't there
+                'host' => 'my-botman-studio.fintechsystems.net',
                 'port' => 6001,
                 'scheme' => 'https',
                 'curl_options' => [

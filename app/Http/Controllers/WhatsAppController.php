@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use GuzzleHttp\Exception\RequestException;
-use Illuminate\Http\Request;
 use Twilio\Rest\Client;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use GuzzleHttp\Exception\RequestException;
 
 /**
  * https://www.twilio.com/blog/build-whatsapp-chatbot-twilio-whatsapp-api-php-laravel
@@ -17,6 +18,7 @@ class WhatsAppController extends Controller
         $body = trim($request->input('Body'));
 
         ray('Incoming WhatsApp:', $body);
+        Log::notice("Incoming WhatsApp: $body");
 
         switch ($body) {
             case "hi":
