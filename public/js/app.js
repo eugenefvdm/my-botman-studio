@@ -2214,9 +2214,9 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   cluster: "mt1",
   encrypted: false,
   // Was true
-  forceTLS: true,
+  forceTLS: false,
   // Wasn't there
-  enabledTransports: ['ws']
+  enabledTransports: ['ws', 'wss']
 });
 window.Echo.channel('chat-room.1').listen('ChatMessageWasReceived', function (e) {
   console.log(e.user, e.chatMessage);
