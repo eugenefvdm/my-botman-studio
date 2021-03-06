@@ -39,7 +39,7 @@ return [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'useTLS' => true, // Was true
                 'encrypted' => false, // Wasn't there
-                'host' => '127.0.0.1',
+                'host' => '127.0.0.1:6001',
                 'port' => 6001,
                 'scheme' => 'https',
                 'curl_options' => [
