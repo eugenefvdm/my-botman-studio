@@ -24,6 +24,7 @@ class WhatsAppController extends Controller
             case "hi":
             case "hello":
             case "hallo":
+                event(new \App\Events\ChatMessageWasReceived($body));
                 $this->sendWhatsAppMessage("Good afternoon", $from);
                 return;
                 break;                

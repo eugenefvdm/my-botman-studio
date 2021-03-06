@@ -22,7 +22,7 @@
         "laravel/framework": "^8.31",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
-        "pusher/pusher-php-server": "~4.0",
+        "pusher/pusher-php-server": "~3.0",
         "spatie/laravel-ray": "^1.14",
         "twilio/sdk": "^6.18"
     },
