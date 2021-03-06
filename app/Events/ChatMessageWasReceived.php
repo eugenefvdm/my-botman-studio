@@ -10,53 +10,32 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ChatMessageWasReceived implements ShouldBroadcast
+class MessagePosted implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
-    public function __construct($chatMessage)
-    {
-        $this->chatMessage = $chatMessage;
-        ray("In broadcast");
+    protected $user;
+    protected $message;
+
+    public function __construct($message)
+    {        
+        $this->message = $message;
     }
 
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
+    public function broadcastWith()
+    {        
+        return [            
+            'message' => $this->message,
+        ];
+    }
+
+    public function broadcastAs()
+    {
+        return 'newMessage';
+    }
+
     public function broadcastOn()
     {
-        return new Channel('chat-room.1');
-        // return [
-        //     "chat-room.1"
-        // ];
-        // return new PrivateChannel('channel-name');
+        return new Channel('messages');
     }
 }
-
-// class ChatMessageWasReceived extends Event implements ShouldBroadcast
-// {
-//     use InteractsWithSockets, SerializesModels;
-
-//     public $chatMessage;
-//     public $user;
-
-//     public function __construct($chatMessage, $user)
-//     {
-//         $this->chatMessage = $chatMessage;
-//         $this->user = $user;
-//     }
-
-//     public function broadcastOn()
-//     {
-//         return [
-//             "chat-room.1"
-//         ];
-//     }
-// }

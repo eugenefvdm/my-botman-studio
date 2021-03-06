@@ -50,14 +50,16 @@ window.Pusher = require('pusher-js');
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: process.env.MIX_PUSHER_APP_KEY,
-    wsHost: window.location.hostname,    
-    wsPort: 6001,    
+    wsHost: window.location.hostname,
+    wsPort: 6001,
     forceTLS: false,
     disableStats: true,
     enabledTransports: ['ws', 'wss'],
 });
-    
-window.Echo.channel('chat-room.1').listen('ChatMessageWasReceived', (e) => {
-    console.log(e.chatMessage);
-});
+
+Echo.channel('messages')
+    .listen('.newMessage', (message) => {
+        console.log(message);
+        // this.messages.push(message);
+    });
 

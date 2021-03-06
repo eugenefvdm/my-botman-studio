@@ -2207,17 +2207,15 @@ if (token) {
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
-  key: "myapp",
+  key: "app",
   wsHost: window.location.hostname,
-  wssHost: window.location.hostname,
   wsPort: 6001,
-  wssPort: 6001,
   forceTLS: false,
   disableStats: true,
   enabledTransports: ['ws', 'wss']
 });
-window.Echo.channel('chat-room.1').listen('ChatMessageWasReceived', function (e) {
-  console.log(e.chatMessage);
+laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default.channel('messages').listen('.newMessage', function (message) {
+  console.log(message); // this.messages.push(message);
 });
 
 /***/ }),
