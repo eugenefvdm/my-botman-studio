@@ -175,7 +175,7 @@
             Echo.channel('messages')
                 .listen('.newMessage', (message) => {
                     // this.messages.push(message);
-                    this._say(message);
+                    this._say(message.message);
                 });
 
             let control = document.getElementById("attachment");
