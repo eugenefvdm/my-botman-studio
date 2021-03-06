@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/bc', function () {
-    event(new \App\Events\ChatMessageWasReceived("hello"));
+    event(new \App\Events\MessagePosted("hello"));
     return;
     // return view('welcome');
 });

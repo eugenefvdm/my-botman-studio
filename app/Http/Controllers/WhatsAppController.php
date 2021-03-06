@@ -24,13 +24,13 @@ class WhatsAppController extends Controller
             case "hi":
             case "hello":
             case "hallo":
-                event(new \App\Events\ChatMessageWasReceived($body));
+                event(new \App\Events\MessagePosted($body));
                 $this->sendWhatsAppMessage("Good afternoon", $from);
                 return;
                 break;                
         }
 
-        event(new \App\Events\ChatMessageWasReceived($body));
+        event(new \App\Events\MessagePosted($body));
 
         // $botman = resolve('botman');                
         // $botman->say($body, "1615041636776", WebDriver::class);

@@ -13,8 +13,7 @@ use Illuminate\Queue\SerializesModels;
 class MessagePosted implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    protected $user;
+    
     protected $message;
 
     public function __construct($message)
