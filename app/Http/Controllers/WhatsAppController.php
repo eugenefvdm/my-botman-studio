@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessagePosted;
 use Twilio\Rest\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -26,6 +27,8 @@ class WhatsAppController extends Controller
             case "hallo":
                 event(new \App\Events\MessagePosted("hello"));
 
+                broadcast(new MessagePosted($body))->toOthers();
+
                 event(new \App\Events\MessagePosted($body));
                 $this->sendWhatsAppMessage("Good afternoon", $from);
                 return;
@@ -33,6 +36,8 @@ class WhatsAppController extends Controller
         }
 
         event(new \App\Events\MessagePosted("hello"));
+
+        broadcast(new MessagePosted($body))->toOthers();
 
         event(new \App\Events\MessagePosted($body));
 

@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\MessagePosted;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,7 @@ Route::get('/', function () {
 
 Route::get('/bc', function () {
     event(new \App\Events\MessagePosted("hello"));
+    broadcast(new MessagePosted("Wow"))->toOthers();
     return;
     // return view('welcome');
 });
