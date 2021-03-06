@@ -24,11 +24,15 @@ class WhatsAppController extends Controller
             case "hi":
             case "hello":
             case "hallo":
+                event(new \App\Events\MessagePosted("hello"));
+
                 event(new \App\Events\MessagePosted($body));
                 $this->sendWhatsAppMessage("Good afternoon", $from);
                 return;
                 break;                
         }
+
+        event(new \App\Events\MessagePosted("hello"));
 
         event(new \App\Events\MessagePosted($body));
 
