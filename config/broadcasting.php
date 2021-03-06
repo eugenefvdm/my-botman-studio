@@ -37,7 +37,7 @@ return [
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
                 // 'cluster' => env('PUSHER_APP_CLUSTER'),                
-                'host' => 'my-botman-studio.test',
+                'host' => 'my-botman-studio.fintechsystems.net',
                 'port' => 6001,
                 'scheme' => 'http'                
             ],
