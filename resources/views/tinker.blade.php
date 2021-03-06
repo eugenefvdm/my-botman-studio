@@ -39,5 +39,12 @@
 </div>
 
 <script src="/js/app.js"></script>
+{{-- <script>
+
+Echo.channel('chat-room.1')
+    .listen('ChatMessageWasReceived', (e) => {
+        console.log(e.user, e.chatMessage);
+    });
+</script> --}}
 </body>
 </html>

@@ -16,6 +16,8 @@ class WhatsAppController extends Controller
         $from = $request->input('From');
         $body = trim($request->input('Body'));
 
+        ray('Incoming WhatsApp:', $body);
+
         switch ($body) {
             case "hi":
             case "hello":
@@ -25,26 +27,11 @@ class WhatsAppController extends Controller
                 break;                
         }
 
-        $client = new \GuzzleHttp\Client();
-        try {
-            $response = $client->request('GET', "https://api.github.com/users/$body");
-            $githubResponse = json_decode($response->getBody());
-            if ($response->getStatusCode() == 200) {
-                $message = "*Name:* $githubResponse->name\n";
-                $message .= "*Bio:* $githubResponse->bio\n";
-                $message .= "*Lives in:* $githubResponse->location\n";
-                $message .= "*Number of Repos:* $githubResponse->public_repos\n";
-                $message .= "*Followers:* $githubResponse->followers devs\n";
-                $message .= "*Following:* $githubResponse->following devs\n";
-                $message .= "*URL:* $githubResponse->html_url\n";
-                $this->sendWhatsAppMessage($message, $from);
-            } else {
-                $this->sendWhatsAppMessage($githubResponse->message, $from);
-            }
-        } catch (RequestException $th) {
-            $response = json_decode($th->getResponse()->getBody());
-            $this->sendWhatsAppMessage($response->message, $from);
-        }
+        event(new \App\Events\ChatMessageWasReceived($body));
+
+        // $botman = resolve('botman');                
+        // $botman->say($body, "1615041636776", WebDriver::class);
+        
         return;
     }
 

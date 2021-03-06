@@ -16,7 +16,7 @@ class ExampleTest extends TestCase
     {
         $this->bot
             ->receives('Hi')
-            ->assertReply('Hello!');
+            ->assertReply('Hello! This is a test');
     }
 
     /**

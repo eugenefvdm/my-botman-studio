@@ -7,7 +7,8 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+// window.Vue = require('vue');
+import Vue from 'vue/dist/vue.js'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,8 +16,9 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import {TinkerComponent} from 'botman-tinker';
-Vue.component('botman-tinker', TinkerComponent);
+// import {TinkerComponent} from 'botman-tinker';
+// Vue.component('botman-tinker', TinkerComponent);
+Vue.component('botman-tinker', require('./TinkerComponent.vue').default);
 
 const app = new Vue({
     el: '#app'
