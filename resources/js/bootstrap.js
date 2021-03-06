@@ -60,6 +60,10 @@ window.Echo = new Echo({
 });
     
 
-window.Echo.channel('chat-room.1').listen('InventoryEvent',(e)=>{
-    console.log(e)
-})
+window.Echo.channel('chat-room.1').listen('ChatMessageWasReceived', (e) => {
+    console.log(e.user, e.chatMessage);
+});
+
+// window.Echo.channel('chat-room.1').listen('InventoryEvent',(e)=>{
+//     console.log(e)
+// })
