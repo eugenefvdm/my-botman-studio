@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Conversations\ExampleConversation;
+use Twilio\Rest\Client;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 
 
-use Twilio\Rest\Client;
+use Illuminate\Support\Facades\Log;
+use App\Conversations\ExampleConversation;
 
 class BotManController extends Controller
 {
@@ -38,13 +39,23 @@ class BotManController extends Controller
         $bot->startConversation(new ExampleConversation());
     }
 
+    public function help(BotMan $bot)
+    {
+        Log::info("Help was invoked by ");
+        Log::debug($bot->getMessage()->getPayload());
+        $from="whatsapp:+27823096710";
+        ray($bot->getMessage()->getPayload());
+        $message = $bot->getMessage()->getPayload()->message;
+        $this->sendWhatsAppMessage("You said: $message", $from);
+    }
+
     public function test(BotMan $bot)
     {
         ray("now in actual fallback");
         $from="whatsapp:+27823096710";
         ray($bot->getMessage()->getPayload());
         $message = $bot->getMessage()()->getPayload()->message;
-        $this->sendWhatsAppMessage("You said: ", $message);
+        $this->sendWhatsAppMessage("You said: $message, $from);
     }
 
     /**

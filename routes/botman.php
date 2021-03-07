@@ -6,6 +6,8 @@ use Twilio\Rest\Client;
 
 $botman = resolve('botman');
 
+$botman->hears('help', BotManController::class.'@help');
+
 $botman->fallback(function($bot) {    
     ray("in route fallback");
     // BotManController::class . '@test';
@@ -15,8 +17,7 @@ $botman->fallback(function($bot) {
     $message = $bot->getMessage()->getPayload()['message'];
     
     sendWhatsAppMessage($message, $from);
-    
-    // $bot->reply("hello");
+        
 });
 
 // ray($botman->getMessage());
@@ -36,8 +37,8 @@ $botman->fallback(function($bot) {
 function sendWhatsAppMessage(string $message, string $recipient)
     {
         $twilio_whatsapp_number = getenv('TWILIO_WHATSAPP_NUMBER');
-        $account_sid = getenv("TWILIO_SID");
-        $auth_token = getenv("TWILIO_AUTH_TOKEN");
+        $account_sid            = getenv("TWILIO_SID");
+        $auth_token             = getenv("TWILIO_AUTH_TOKEN");
 
         $client = new Client($account_sid, $auth_token);
         return $client->messages->create($recipient, array('from' => "whatsapp:$twilio_whatsapp_number", 'body' => $message));

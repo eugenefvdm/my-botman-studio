@@ -20,7 +20,7 @@ class WhatsAppController extends Controller
         $body = trim($request->input('Body'));
 
         ray("Incoming WhatsApp from $from:", $body);
-        Log::notice("Incoming WhatsApp $from: $body");
+        Log::notice("Incoming $from: \"$body\"");
 
         switch ($body) {
             case "hi":
@@ -31,7 +31,7 @@ class WhatsAppController extends Controller
                 return;
                 break;                
         }
-                        
+
         event(new \App\Events\NewMessage($body));
         
         return;
