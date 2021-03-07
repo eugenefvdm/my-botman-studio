@@ -59,7 +59,7 @@ window.Echo = new Echo({
     enabledTransports: ['ws', 'wss'],
 });
 
-windows.Pusher.log = (msg) => {
+window.Pusher.log = (msg) => {
     console.log(msg);
 }
     

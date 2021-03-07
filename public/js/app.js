@@ -2220,7 +2220,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   enabledTransports: ['ws', 'wss']
 });
 
-windows.Pusher.log = function (msg) {
+window.Pusher.log = function (msg) {
   console.log(msg);
 };
 
