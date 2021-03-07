@@ -55,7 +55,7 @@ class BotManController extends Controller
         $from="whatsapp:+27823096710";
         ray($bot->getMessage()->getPayload());
         $message = $bot->getMessage()()->getPayload()->message;
-        $this->sendWhatsAppMessage("You said: $message, $from);
+        $this->sendWhatsAppMessage("You said: $message", $from);
     }
 
     /**
