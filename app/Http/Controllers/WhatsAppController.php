@@ -28,13 +28,27 @@ class WhatsAppController extends Controller
             case "hallo":                                
                 event(new \App\Events\NewMessage($body));
                 $reply = "Good morning!";
-                Log::notice("Repling with: \"$reply\"");
+                Log::notice("Replying with: \"$reply\"");
                 $this->sendWhatsAppMessage($reply, $from);
                 return;
-                break;                
+                break;
+            case "help":
+                event(new \App\Events\NewMessage($body)); // Output user message to front-end
+                $reply = "Reply with '1' to speak to an operator, '2' to get more options";
+                Log::notice("Replying with: \"$reply\"");
+                $this->sendWhatsAppMessage($reply, $from);
+                return;
+                break;
+            case '2' :
+                event(new \App\Events\NewMessage($body)); // Output user message to front-end
+                $reply = "Type 'usage' to get current usage";
+                Log::notice("Replying with: \"$reply\"");
+                $this->sendWhatsAppMessage($reply, $from);
+                return;
+                break;
         }
 
-        Log::notice("Repling with: \"$body\"");
+        Log::notice("Replying with: \"$body\"");
         event(new \App\Events\NewMessage($body));
         
         return;
