@@ -28,10 +28,10 @@ class NewMessage implements ShouldBroadcast
         ];
     }
 
-    // public function broadcastAs()
-    // {
-    //     return 'newMessage';
-    // }
+    public function broadcastAs()
+    {
+        return '.newMessage';
+    }
 
     public function broadcastOn()
     {

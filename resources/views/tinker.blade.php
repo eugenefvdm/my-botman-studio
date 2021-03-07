@@ -40,21 +40,5 @@
 
 <script src="/js/app.js"></script>
 
-<script>
-window.Echo.channel('messages')
-    .listen('.newMessage', (message) => {
-        console.log(message);
-        // this.messages.push(message);
-    });
-
-</script>
-
-{{-- <script>
-
-Echo.channel('chat-room.1')
-    .listen('ChatMessageWasReceived', (e) => {
-        console.log(e.user, e.chatMessage);
-    });
-</script> --}}
 </body>
 </html>
