@@ -13,9 +13,10 @@ $botman->fallback(function($bot) {
     ray($bot->getMessage()->getPayload());
 
     $message = $bot->getMessage()->getPayload()['message'];
-    // ray($message);
+    
     sendWhatsAppMessage($message, $from);
-    $bot->reply("hello");
+    
+    // $bot->reply("hello");
 });
 
 // ray($botman->getMessage());
