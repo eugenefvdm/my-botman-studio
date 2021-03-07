@@ -25,25 +25,19 @@ class WhatsAppController extends Controller
         switch ($body) {
             case "hi":
             case "hello":
-            case "hallo":
-                event(new \App\Events\NewMessage("hello"));
+            case "hallo":                
 
-                broadcast(new NewMessage($body))->toOthers();
+                // broadcast(new NewMessage($body))->toOthers();
 
                 event(new \App\Events\NewMessage($body));
                 $this->sendWhatsAppMessage("Good afternoon", $from);
                 return;
                 break;                
         }
-
-        event(new \App\Events\NewMessage("hello"));
-
-        broadcast(new NewMessage($body))->toOthers();
+        
+        // broadcast(new NewMessage($body))->toOthers();
 
         event(new \App\Events\NewMessage($body));
-
-        // $botman = resolve('botman');                
-        // $botman->say($body, "1615041636776", WebDriver::class);
         
         return;
     }
