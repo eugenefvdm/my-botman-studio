@@ -173,9 +173,9 @@
 
         mounted() {
             Echo.channel('messages')
-                .listen('NewMessage', (message) => {
+                .listen('.newMessage', (message) => {
                     // this.messages.push(message);
-                    this._say(message.message);
+                    this._say(message);
                 });
 
             let control = document.getElementById("attachment");
