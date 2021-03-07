@@ -8,6 +8,8 @@ $botman = resolve('botman');
 
 $botman->hears('help', BotManController::class.'@help');
 
+$botman->hears('Start conversation', BotManController::class.'@startConversation');
+
 $botman->fallback(function($bot) {    
     ray("in route fallback");
     // BotManController::class . '@test';
@@ -32,7 +34,7 @@ $botman->fallback(function($bot) {
 //     $bot->reply('Hello! How are you?');    
 // });
 
-// $botman->hears('Start conversation', BotManController::class.'@startConversation');
+
 
 function sendWhatsAppMessage(string $message, string $recipient)
     {
