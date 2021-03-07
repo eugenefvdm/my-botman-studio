@@ -14,6 +14,13 @@ use GuzzleHttp\Exception\RequestException;
  */
 class WhatsAppController extends Controller
 {
+    public function handle()
+    {
+        $botman = app('botman');
+
+        $botman->listen();
+    }
+
     public function listenToReplies(Request $request)
     {
         $from = $request->input('From');
