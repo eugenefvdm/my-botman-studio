@@ -30,7 +30,7 @@ class NewMessage implements ShouldBroadcast
 
     public function broadcastAs()
     {
-        return '.newMessage';
+        return 'newMessage';
     }
 
     public function broadcastOn()
