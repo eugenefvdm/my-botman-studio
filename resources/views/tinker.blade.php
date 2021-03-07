@@ -42,7 +42,7 @@
 
 <script>
 window.Echo.channel('messages')
-    .listen('.newMessage', (message) => {
+    .listen('newMessage', (message) => {
         console.log(message);
         // this.messages.push(message);
     });
