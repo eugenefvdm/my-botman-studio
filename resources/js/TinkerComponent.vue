@@ -227,8 +227,7 @@
                     });
                     if (callback) {
                         callback(response.data);
-                    }
-                    this._say('Testing 123');
+                    }                    
                 });
             },
 

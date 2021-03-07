@@ -2075,8 +2075,6 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
         if (callback) {
           callback(response.data);
         }
-
-        _this2._say('Testing 123');
       });
     },
     performAction: function performAction(value, message) {
