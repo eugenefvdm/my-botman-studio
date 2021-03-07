@@ -173,7 +173,7 @@
 
         mounted() {
             Echo.channel('messages')
-                .listen('.newMessage', (message) => {
+                .listen('NewMessage', (message) => {
                     // this.messages.push(message);
                     this._say(message.message);
                 });
