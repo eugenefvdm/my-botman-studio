@@ -58,6 +58,10 @@ window.Echo = new Echo({
     disableStats: true,
     enabledTransports: ['ws', 'wss'],
 });
+
+windows.Pusher.log = (msg) => {
+    console.log(msg);
+}
     
 window.Echo.channel('messages').listen('NewMessage', (e) => {
     console.log(e.chatMessage);

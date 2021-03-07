@@ -2219,6 +2219,11 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   disableStats: true,
   enabledTransports: ['ws', 'wss']
 });
+
+windows.Pusher.log = function (msg) {
+  console.log(msg);
+};
+
 window.Echo.channel('messages').listen('NewMessage', function (e) {
   console.log(e.chatMessage);
 });
