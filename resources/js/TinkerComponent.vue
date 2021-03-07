@@ -172,6 +172,7 @@
         },
 
         mounted() {
+            
             Echo.channel('messages')
                 .listen('.newMessage', (message) => {
                     this._say(message.message);

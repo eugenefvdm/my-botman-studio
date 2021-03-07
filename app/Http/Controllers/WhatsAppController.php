@@ -19,24 +19,19 @@ class WhatsAppController extends Controller
         $from = $request->input('From');
         $body = trim($request->input('Body'));
 
-        ray('Incoming WhatsApp:', $body);
-        Log::notice("Incoming WhatsApp: $body");
+        ray("Incoming WhatsApp from $from:", $body);
+        Log::notice("Incoming WhatsApp $from: $body");
 
         switch ($body) {
             case "hi":
             case "hello":
-            case "hallo":                
-
-                // broadcast(new NewMessage($body))->toOthers();
-
+            case "hallo":                                
                 event(new \App\Events\NewMessage($body));
                 $this->sendWhatsAppMessage("Good afternoon", $from);
                 return;
                 break;                
         }
-        
-        // broadcast(new NewMessage($body))->toOthers();
-
+                        
         event(new \App\Events\NewMessage($body));
         
         return;
