@@ -59,7 +59,7 @@ window.Echo = new Echo({
     enabledTransports: ['ws', 'wss'],
 });
     
-window.Echo.channel('chat-room.1').listen('ChatMessageWasReceived', (e) => {
+window.Echo.channel('messages').listen('NewMessage', (e) => {
     console.log(e.chatMessage);
 });
 

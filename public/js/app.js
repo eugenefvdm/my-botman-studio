@@ -2220,7 +2220,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   disableStats: true,
   enabledTransports: ['ws', 'wss']
 });
-window.Echo.channel('chat-room.1').listen('ChatMessageWasReceived', function (e) {
+window.Echo.channel('messages').listen('NewMessage', function (e) {
   console.log(e.chatMessage);
 });
 

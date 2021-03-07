@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\MessagePosted;
 use Twilio\Rest\Client;
+use App\Events\NewMessage;
 use Illuminate\Http\Request;
+use App\Events\MessagePosted;
 use Illuminate\Support\Facades\Log;
 use GuzzleHttp\Exception\RequestException;
 
@@ -25,21 +26,21 @@ class WhatsAppController extends Controller
             case "hi":
             case "hello":
             case "hallo":
-                event(new \App\Events\MessagePosted("hello"));
+                event(new \App\Events\NewMessage("hello"));
 
-                broadcast(new MessagePosted($body))->toOthers();
+                broadcast(new NewMessage($body))->toOthers();
 
-                event(new \App\Events\MessagePosted($body));
+                event(new \App\Events\NewMessage($body));
                 $this->sendWhatsAppMessage("Good afternoon", $from);
                 return;
                 break;                
         }
 
-        event(new \App\Events\MessagePosted("hello"));
+        event(new \App\Events\NewMessage("hello"));
 
-        broadcast(new MessagePosted($body))->toOthers();
+        broadcast(new NewMessage($body))->toOthers();
 
-        event(new \App\Events\MessagePosted($body));
+        event(new \App\Events\NewMessage($body));
 
         // $botman = resolve('botman');                
         // $botman->say($body, "1615041636776", WebDriver::class);
