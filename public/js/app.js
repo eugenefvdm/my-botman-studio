@@ -2018,7 +2018,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
   mounted: function mounted() {
     var _this = this;
 
-    Echo.channel('messages').listen('newMessage', function (message) {
+    Echo.channel('messages').listen('.newMessage', function (message) {
       _this._say(message.message);
     });
     var control = document.getElementById("attachment");
